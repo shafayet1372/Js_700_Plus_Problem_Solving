@@ -1,0 +1,34 @@
+/* Disarium Number
+A number is said to be Disarium if the sum of its digits raised to their respective positions is the number itself.
+
+Create a function that determines whether a number is a Disarium or not.
+
+Examples
+isDisarium(75) ➞ false
+// 7^1 + 5^2 = 7 + 25 = 32
+
+isDisarium(135) ➞ true
+// 1^1 + 3^2 + 5^3 = 1 + 9 + 125 = 135
+
+isDisarium(518) ➞ false
+
+isDisarium(518) ➞ true
+
+isDisarium(544) ➞ false
+
+isDisarium(8) ➞ true
+
+isDisarium(466) ➞ false */
+
+function isDisarium(n) {
+  let s = n.toString().split("")
+  let sum = 0
+  let i = 0
+  while (i < s.length) {
+    sum += Math.pow(parseInt(s[i]), i + 1)
+    i++
+  }
+  return sum == n
+}
+
+console.log(isDisarium(135))

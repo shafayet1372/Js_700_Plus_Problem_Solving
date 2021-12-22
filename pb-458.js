@@ -1,0 +1,43 @@
+/* Ping Pong!
+A game of table tennis almost always sounds like Ping! followed by Pong! Therefore, you know that Player 2 has won if you hear Pong! as the last 
+sound (since Player 1 didn't return the ball back).
+
+
+Given an array of Ping!, create a function that inserts Pong! in between each element. Also:
+
+If win equals true, end the list with Pong!.
+If win equals false, end with Ping! instead.
+Examples
+pingPong(["Ping!"], true) ➞ ["Ping!", "Pong!"]
+
+pingPong(["Ping!", "Ping!"], false) ➞ ["Ping!", "Pong!", "Ping!"]
+
+pingPong(["Ping!", "Ping!", "Ping!"], true) ➞ ["Ping!", "Pong!", "Ping!", "Pong!", "Ping!", "Pong!"]
+Notes
+You will always return the ball (i.e. the Pongs are yours).
+Player 1 serves the ball and makes Ping!.
+Return an array of strings.
+ */
+
+
+function pingPong(arr, win) {
+  let result = []
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i] == 'Ping!')
+    if (arr[i] == 'Ping!' && i != arr.length - 1) {
+
+      result.push('Ping!')
+      result.push('Pong!')
+    } else if (i == arr.length - 1) {
+      if (win) {
+        result.push('Ping!')
+        result.push('Pong!')
+      } else {
+        result.push('Ping!')
+      }
+    }
+  }
+  return result
+}
+
+console.log(pingPong(["Ping!", "Ping!", "Ping!"], true))
